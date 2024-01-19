@@ -1,4 +1,4 @@
-package test.lesson1;
+package test.program1;
 
 public class Suji {
     public static void main(String[] args) {

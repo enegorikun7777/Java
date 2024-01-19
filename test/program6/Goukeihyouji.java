@@ -1,4 +1,4 @@
-package test.lesson6;
+package test.program6;
 
 public class Goukeihyouji {
     public static void main(String[] args) {

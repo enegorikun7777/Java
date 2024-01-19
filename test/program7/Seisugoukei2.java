@@ -1,4 +1,4 @@
-package test.lesson7;
+package test.program7;
 
 public class Seisugoukei2 {
     public static void main(String[] args) {
