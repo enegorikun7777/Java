@@ -2,9 +2,9 @@ package test.program13;
 
 // Teacher3のクラスを定義
 public class Teacher3 implements Person3 {
-    private String name;
-    private String job;
-    private String subject;
+    private String name;     // 氏名
+    private String job;      // 職業
+    private String subject;  // 科目
 
     // コンストラクタ
     public Teacher3(String name, String job, String subject) {
