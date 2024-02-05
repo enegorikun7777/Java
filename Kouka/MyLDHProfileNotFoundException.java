@@ -1,7 +1,5 @@
 package Kouka;
 
-import Kouka.MyLDHProfileNotFoundException;
-
 /**
  * LDHプロフィールが見つからなかった場合にスローされる例外クラス。
  * MyLDHProfileNotFoundException は Exception クラスを継承し、

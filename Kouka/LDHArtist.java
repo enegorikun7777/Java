@@ -3,19 +3,18 @@ package Kouka;
 /**
  * LDHのアーティストクラス
  */
-
 public class LDHArtist {
     // アーティストの名前
-    protected String name;
-    
+    private String name;
+
     // アーティストが所属するグループ
-    protected String group;
-    
+    private String group;
+
     // アーティストのデビューした年
-    protected String debutYear;
-    
+    private String debutYear;
+
     // アーティストの担当ポジション（新しく追加）
-    protected String position;
+    private String position;
 
     /**
      * コンストラクタ：LDHArtist クラスのインスタンスを生成する。
@@ -29,6 +28,46 @@ public class LDHArtist {
         this.name = name;
         this.group = group;
         this.debutYear = debutYear;
+        this.position = position;
+    }
+
+    // nameのゲッター
+    public String getName() {
+        return name;
+    }
+
+    // nameのセッター
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // groupのゲッター
+    public String getGroup() {
+        return group;
+    }
+
+    // groupのセッター
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    // debutYearのゲッター
+    public String getDebutYear() {
+        return debutYear;
+    }
+
+    // debutYearのセッター
+    public void setDebutYear(String debutYear) {
+        this.debutYear = debutYear;
+    }
+
+    // positionのゲッター
+    public String getPosition() {
+        return position;
+    }
+
+    // positionのセッター
+    public void setPosition(String position) {
         this.position = position;
     }
 

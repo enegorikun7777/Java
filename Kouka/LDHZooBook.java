@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class LDHZooBook {
     // LDHグループのリスト
-    public ArrayList<LDHGroup> ldhGroups;
+    public ArrayList<LDHGroup> ldhGroups;  // アクセス修飾子をpublicに変更
 
     /**
      * コンストラクタ：LDHZooBook クラスのインスタンスを生成する。
@@ -31,7 +31,7 @@ public class LDHZooBook {
     public void displayGroupList() {
         System.out.println("=== LDH Group List ===");
         for (int i = 0; i < ldhGroups.size(); i++) {
-            System.out.println((i + 1) + ". " + ldhGroups.get(i).groupName);
+            System.out.println((i + 1) + ". " + ldhGroups.get(i).getGroupName());
         }
     }
 

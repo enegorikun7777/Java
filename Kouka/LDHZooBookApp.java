@@ -12,20 +12,20 @@ public class LDHZooBookApp {
 
         // EXILEの新しいメンバーの作成
         LDHArtist takahiro = new LDHArtist("TAKAHIRO", "EXILE", "2006", "Vocal");
-        LDHArtist akira = new LDHArtist("AKIRA", "EXILE", "2003", "Performer");
+        LDHArtist akira = new LDHArtist("AKIRA", "EXILE THE SECOND", "2003", "Performer");
         LDHArtist kenchi = new LDHArtist("KENTI", "EXILE", "2007", "Performer");
-        LDHArtist keiji = new LDHArtist("黒木 啓司", "EXILE", "1980", "Performer");
-        LDHArtist tetsuya = new LDHArtist("TETSUYA", "EXILE", "1982", "Performer");
-        LDHArtist nesmith = new LDHArtist("NESMITH", "EXILE", "1982", "Performer");
-        LDHArtist shokichi = new LDHArtist("SHOKICHI", "EXILE", "1985", "Vocal");
-        LDHArtist aran = new LDHArtist("白濱 亜嵐", "EXILE", "1990", "Performer");
-        LDHArtist mendy = new LDHArtist("関口 メンディー", "EXILE", "1993", "Performer");
-        LDHArtist sekai = new LDHArtist("世界", "EXILE", "1993", "Performer");
-        LDHArtist daiki = new LDHArtist("佐藤 大樹", "EXILE", "1994", "Performer");
+        LDHArtist keiji = new LDHArtist("黒木 啓司", "EXILE THE SECOND", "2007", "Performer");
+        LDHArtist tetsuya = new LDHArtist("TETSUYA", "EXILE THE SECOND", "2007", "Performer");
+        LDHArtist nesmith = new LDHArtist("NESMITH", "EXILE THE SECOND", "2001", "Performer");
+        LDHArtist shokichi = new LDHArtist("SHOKICHI", "EXILE THE SECOND", "2007", "Vocal");
+        LDHArtist aran = new LDHArtist("白濱 亜嵐", "GENERATIONS", "2010", "Performer");
+        LDHArtist mendy = new LDHArtist("関口 メンディー", "GENERATIONS", "2011", "Performer");
+        LDHArtist sekai = new LDHArtist("世界", "FANTASTICS from EXILE TRIBE", "2014", "Performer");
+        LDHArtist daiki = new LDHArtist("佐藤 大樹", "FANTASTICS from EXILE TRIBE", "2011", "Performer");
 
         // 三代目の新しいメンバーの作成
         LDHArtist ryuji = new LDHArtist("今市 隆二", "3JSB", "2010", "Vocal");
-        LDHArtist gun = new LDHArtist("岩田 剛典", "3JSB","2010" , "Performer");
+        LDHArtist gun = new LDHArtist("岩田 剛典", "3JSB", "2010", "Performer");
         LDHArtist kenjirou = new LDHArtist("山下 健二郎", "3JSB", "2010", "Performer");
         LDHArtist naoto = new LDHArtist("NAOTO", "3JSB", "2010", "Performer");
         LDHArtist elly = new LDHArtist("ELLY", "3JSB", "2010", "Performer");
@@ -39,7 +39,7 @@ public class LDHZooBookApp {
         LDHArtist kaede = new LDHArtist("楓", "Happiness", "2011", "Performer");
         LDHArtist karen = new LDHArtist("藤井 夏恋", "Happiness", "2011", "Vocal");
         LDHArtist miyuu = new LDHArtist("MIYUU", "Happiness", "2011", "Performer");
-        LDHArtist yurino = new LDHArtist("YURINO", "Happiness", "2011", "Perfomer");
+        LDHArtist yurino = new LDHArtist("YURINO", "Happiness", "2011", "Performer");
         LDHArtist anna = new LDHArtist("須田 アンナ", "Happiness", "2011", "Performer");
         LDHArtist ruri = new LDHArtist("川本 璃", "Happiness", "2011", "Performer");
         LDHArtist shuka = new LDHArtist("藤井 萩花", "Flower", "2011", "Performer");
@@ -110,22 +110,40 @@ public class LDHZooBookApp {
         ldhZooBook.addGroup(jsb);
         ldhZooBook.addGroup(egirlsGroup);
 
-
         // 一覧画面の表示
         ldhZooBook.displayGroupList();
 
         // ユーザーによるグループの選択
         Scanner scanner = new Scanner(System.in, "Shift-JIS");
-        System.out.print("知りたいグループを選んでください。 (1~3番の中で): ");
-        int selectedGroupIndex = scanner.nextInt();
 
-        // メンバー一覧画面の表示
-        ldhZooBook.displayGroupMembers(selectedGroupIndex);
+        boolean exitProgram = false;
 
-        // 追加: メンバー詳細情報表示
-        System.out.print("詳細を知りたいメンバーの名前を入力してください: ");
-        scanner.nextLine(); // 改行をクリア
-        String memberName = scanner.nextLine();
-        ldhZooBook.ldhGroups.get(selectedGroupIndex - 1).displayMemberDetails(memberName);
+        while (!exitProgram) {
+
+            // ユーザーによるグループの選択
+            System.out.print("知りたいグループを選んでください。 (1~3番の中で): ");
+            int selectedGroupIndex = scanner.nextInt();
+
+            // メンバー一覧画面の表示
+            ldhZooBook.displayGroupMembers(selectedGroupIndex);
+
+            // 追加: メンバー詳細情報表示
+            System.out.print("詳細を知りたいメンバーの名前を入力してください: ");
+            scanner.nextLine(); // 改行をクリア
+            String memberName = scanner.nextLine();
+            ldhZooBook.ldhGroups.get(selectedGroupIndex - 1).displayMemberDetails(memberName);
+
+            // メニュー表示
+            System.out.print("続けますか？ (はい: 1, いいえ: 0): ");
+            int continueChoice = scanner.nextInt();
+
+            if (continueChoice == 0) {
+                exitProgram = true;
+                System.out.println("LDH図鑑を終了します。");
+            }
+        }
+
+        // スキャナーを閉じる
+        scanner.close();
     }
 }

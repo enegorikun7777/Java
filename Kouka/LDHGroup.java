@@ -7,10 +7,10 @@ import java.util.ArrayList;
  */
 public class LDHGroup {
     // グループの名前
-    protected String groupName;
+    private String groupName;
 
     // グループのメンバー（LDHArtistのインスタンスのリスト）
-    protected ArrayList<LDHArtist> members;
+    private ArrayList<LDHArtist> members;
 
     /**
      * コンストラクタ：LDHGroup クラスのインスタンスを生成する。
@@ -20,6 +20,11 @@ public class LDHGroup {
     public LDHGroup(String groupName) {
         this.groupName = groupName;
         this.members = new ArrayList<>();
+    }
+
+    // 以下のゲッターを追加
+    public String getGroupName() {
+        return groupName;
     }
 
     /**
@@ -37,7 +42,7 @@ public class LDHGroup {
     public void displayMembers() {
         System.out.println("=== " + groupName + " Members ===");
         for (LDHArtist member : members) {
-            System.out.println("- " + member.name);
+            System.out.println("- " + member.getName());
         }
     }
 
@@ -50,7 +55,7 @@ public class LDHGroup {
      */
     private LDHArtist getMemberByName(String memberName) throws MyLDHProfileNotFoundException {
         for (LDHArtist member : members) {
-            if (member.name.equals(memberName)) {
+            if (member.getName().equals(memberName)) {
                 return member;
             }
         }
@@ -67,7 +72,7 @@ public class LDHGroup {
             LDHArtist member = getMemberByName(memberName);
             member.displayProfileWithDetails();
         } catch (MyLDHProfileNotFoundException e) {
-        System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
